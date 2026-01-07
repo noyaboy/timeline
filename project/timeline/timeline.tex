@@ -1,0 +1,146 @@
+\documentclass[9pt]{extarticle}
+\usepackage[a4paper, margin=0.5in, top=0.4in, bottom=0.4in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+
+% Color definitions
+\definecolor{timelineblue}{RGB}{41, 98, 255}
+\definecolor{optimgreen}{RGB}{0, 150, 80}
+\definecolor{conforange}{RGB}{230, 126, 34}
+\definecolor{ongoingblue}{RGB}{52, 152, 219}
+\definecolor{warnred}{RGB}{192, 57, 43}
+\definecolor{lightblue}{RGB}{235, 245, 255}
+
+\setlist[itemize]{leftmargin=0.8em, itemsep=-1pt, parsep=0pt, topsep=0pt, partopsep=0pt}
+\renewcommand{\arraystretch}{1.0}
+
+\pagestyle{empty}
+
+\newcommand{\dateentry}[1]{\textcolor{timelineblue}{\textbf{#1}}}
+\newcommand{\speedup}[1]{\textcolor{optimgreen}{\textbf{#1}}}
+\newcommand{\conf}[1]{\textcolor{conforange}{#1}}
+\newcommand{\warn}[1]{\textcolor{warnred}{#1}}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Research Timeline: November 2024 -- January 2026}
+\end{center}
+
+\vspace{0.2em}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{}>{\raggedleft\arraybackslash}p{1.9cm}|X@{}}
+
+\dateentry{2024.11--2025.1} &
+\vspace{-0.5em}\begin{itemize}
+\item Established the traccc environment
+\end{itemize}\vspace{-0.3em}\\
+
+\dateentry{2025.2--2025.3} &
+\vspace{-0.5em}\begin{itemize}
+\item Studied traccc code and algorithms (over 70,000 lines)
+\item Analyzed next steps and reported to the European team
+\item Revised the manuscript for YunChen's paper
+\end{itemize}\vspace{-0.3em}\\
+
+\dateentry{2025.4} &
+\vspace{-0.5em}\begin{itemize}
+\item Set up the Nvidia Nsight Systems environment
+\item Profiled traccc to identify bottlenecks
+\item Created figures for YunChen's paper
+\end{itemize}\vspace{-0.3em}\\
+
+\dateentry{2025.5} &
+\vspace{-0.5em}\begin{itemize}
+\item Analyzed bottlenecks; attempted code modifications and debugging
+\item Split the fit kernel, increasing throughput by \speedup{10\%}
+\item Assisted YunChen with the \conf{VLSICAD} submission
+\end{itemize}\vspace{-0.3em}\\
+
+\dateentry{2025.6} &
+\vspace{-0.5em}\begin{itemize}
+\item Replaced Kalman gain matrix operations with INT8 MLP
+\item Achieved \speedup{186\% speedup} but observed \warn{physics accuracy degradation}
+\item Reported results to the European team
+\item Assisted YunChen with the \conf{TJCAS} submission
+\item Attempted Nsight Compute setup (severe environmental issues)
+\end{itemize}\vspace{-0.3em}\\
+
+\dateentry{2025.7} &
+\vspace{-0.5em}\begin{itemize}
+\item Prepared slides \& scripts (EN/CN) for YunChen's \conf{VLSICAD 2025} oral
+\item Prepared slides \& scripts for the \conf{TJCAS} oral presentation
+\item Successfully established the Nvidia Nsight Compute environment
+\end{itemize}\vspace{-0.3em}\\
+
+\dateentry{2025.8} &
+\vspace{-0.5em}\begin{itemize}
+\item Created posters for \conf{TJCAS} and \conf{FastML}
+\item Attended \conf{VLSICAD} and \conf{TJCAS}
+\end{itemize}\vspace{-0.3em}\\
+
+\rowcolor{lightblue}
+\dateentry{2025.9} &
+\vspace{-0.5em}\begin{itemize}
+\item Attended \conf{FastML}; started planning for Weak Lensing competition
+\item Assisted Edwin with NCU profiling of Token Reduction
+\item Established basic NCU Profile Flow Optimization for large profile data
+\item \textit{\textcolor{ongoingblue}{$\rightarrow$ Begin: Ongoing NCU Profile Flow Optimization}}
+\end{itemize}\vspace{-0.3em}\\
+
+\rowcolor{lightblue}
+\dateentry{2025.10} &
+\vspace{-0.5em}\begin{itemize}
+\item Put coursework aside for Weak Lensing competition (solo sprint)
+\item \textit{\textcolor{ongoingblue}{Ongoing: NCU Profile Flow Optimization}}
+\end{itemize}\vspace{-0.3em}\\
+
+\rowcolor{lightblue}
+\dateentry{2025.11} &
+\vspace{-0.5em}\begin{itemize}
+\item Continued Weak Lensing sprint until mid-November; caught up on coursework
+\item Conducted NCU profiling on traccc; identified potential for batching
+\item \textit{\textcolor{ongoingblue}{Ongoing: NCU Profile Flow Optimization}}
+\end{itemize}\vspace{-0.3em}\\
+
+\rowcolor{lightblue}
+\dateentry{2025.12} &
+\vspace{-0.5em}\begin{itemize}
+\item Completed multi-event batching optimization (mid-month)
+\item Achieved \speedup{93\% speedup} with no physics accuracy loss
+\item Researched next steps; attempted several incorrect approaches
+\item \textit{\textcolor{ongoingblue}{Ongoing: NCU Profile Flow Optimization}}
+\end{itemize}\vspace{-0.3em}\\
+
+\rowcolor{lightblue}
+\dateentry{2026.1} &
+\vspace{-0.5em}\begin{itemize}
+\item Implemented conditional Jacobian matrix aggregation (\speedup{18\% speedup}, no degradation)
+\item Observation: Batching shifted find/fit from memory-bound to compute-bound
+\item Analysis: FPGA infeasible for high FLOPS tasks (strict FP64 requirements)
+\item Future: Thesis focuses on GPU register pressure optimization
+\item \textit{\textcolor{ongoingblue}{$\rightarrow$ End: NCU Profile Flow Optimization}}
+\end{itemize}\vspace{-0.3em}\\
+
+\end{tabularx}
+
+\vspace{0.5em}
+\noindent\footnotesize
+\textbf{Legend:}
+\speedup{Green} = Performance gains \quad
+\conf{Orange} = Conferences/Papers \quad
+\warn{Red} = Accuracy concerns \quad
+\colorbox{lightblue}{Blue} = NCU Flow Opt.\ period
+
+\vfill
+\begin{center}
+\scriptsize\textcolor{gray}{Generated: January 2026}
+\end{center}
+
+\end{document}
