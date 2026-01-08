@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[a4paper, margin=0.7in, top=0.6in, bottom=0.6in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -64,8 +64,8 @@
   entrybox/.style={anchor=north west, text width=14cm, inner sep=0, font=\small},
 ]
 
-% Timeline spine
-\draw[timeline] (0, 0) -- (0, -24.5);
+% Timeline spine (page 1 only - ends at page break)
+\draw[timeline] (0, 0) -- (0, -15.5);
 
 % ==================== 2024.11 - 2025.1 ====================
 \node[datenode] at (0, 0) {};
@@ -138,7 +138,7 @@
 \node[datelabel] at (-0.2, -14.3) {2025.8};
 \node[entrybox] at (0.5, -14.15) {
 \begin{itemize}
-  \item \confmark\ Created posters for \conf{TJCAS} and \conf{FastML} (workshop)
+  \item \confmark\ Created posters for \conf{TJCAS} and \conf{FastML}
   \item \confmark\ Attended \conf{VLSICAD} and \conf{TJCAS}
 \end{itemize}
 };
@@ -171,7 +171,7 @@
 ]
 
 % Timeline spine (page 2)
-\draw[timeline] (0, 0.5) -- (0, -18);
+\draw[timeline] (0, 0.5) -- (0, -11);
 
 % ==================== 2025.9 ====================
 \node[datenode ongoing] at (0, 0) {};
@@ -212,6 +212,7 @@
   \item \optmark\ Completed multi-event batching optimization (mid-month)
   \item \optmark\ Achieved \speedup{93\%} speedup with no physics accuracy loss
   \item \optmark\ Researched next steps; attempted several incorrect approaches
+  \item \optmark\ Recorded an algorithm tutorial video for junior students
 \end{itemize}
 };
 
@@ -224,7 +225,6 @@
   \item \optmark\ Observation: Batching shifted find/fit (track finding and fitting) from memory-bound to compute-bound
   \item \optmark\ Analysis: FPGA infeasible for high FLOPS tasks (strict FP64 requirements)
   \item \optmark\ Future: Thesis focuses on GPU register pressure optimization
-  \item \textit{\textcolor{ongoingblue}{$\rightarrow$ End: NCU Profile Flow Optimization}}
 \end{itemize}
 };
 
